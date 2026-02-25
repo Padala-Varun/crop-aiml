@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AI Smart Agriculture Assistant - Helping farmers with crop recommendations, yield forecasting, disease detection, and AI-powered farming advice.">
+    <title>🌾 Smart Agriculture AI - Intelligent Farming Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+</head>
+<body>
+    <div class="landing-page">
+        <!-- Navigation -->
+        <nav class="landing-nav">
+            <div class="nav-logo">
+                <span class="nav-logo-icon">🌾</span>
+                <span class="nav-logo-text">Smart<span>Agri</span> AI</span>
+            </div>
+            <a href="/dashboard" class="nav-cta">
+                Open Dashboard →
+            </a>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    🤖 Powered by AI & Machine Learning
+                </div>
+                <h1 class="hero-title">
+                    Smarter Farming with<br>
+                    <span class="highlight">Artificial Intelligence</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Harness the power of AI to make better farming decisions. Get crop recommendations, 
+                    predict yields, detect plant diseases, and chat with an intelligent farming assistant — 
+                    all in one platform.
+                </p>
+                <div class="hero-buttons">
+                    <a href="/dashboard" class="btn-primary">
+                        🚀 Get Started
+                    </a>
+                    <a href="#features" class="btn-secondary">
+                        📖 Learn More
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section" id="features">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon green">🌱</div>
+                    <h3>Crop Recommendation</h3>
+                    <p>Get AI-powered crop suggestions based on your soil nutrients, climate, and regional conditions using XGBoost ML.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon amber">📊</div>
+                    <h3>Yield Forecasting</h3>
+                    <p>Predict expected crop yields using Random Forest models. Plan your harvest and market strategy ahead of time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon blue">🌧️</div>
+                    <h3>Rainfall Prediction</h3>
+                    <p>Forecast rainfall amounts using Artificial Neural Networks to optimize irrigation and water management.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon red">🔬</div>
+                    <h3>Disease Detection</h3>
+                    <p>Upload leaf images for instant plant disease identification using MobileNet CNN with treatment suggestions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon purple">🤖</div>
+                    <h3>AI Chat Assistant</h3>
+                    <p>Chat with our Gemini-powered agricultural expert. Get advice on fertilizers, pests, soil health, and more.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon teal">🎤</div>
+                    <h3>Voice Assistant</h3>
+                    <p>Speak to the AI assistant hands-free. Perfect for farmers on the field who need quick agricultural advice.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

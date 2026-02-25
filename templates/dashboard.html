@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Smart Agriculture AI Dashboard - Crop recommendation, yield prediction, disease detection, and AI chatbot.">
+    <title>🌾 Dashboard - Smart Agriculture AI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+</head>
+
+<body>
+    <div class="dashboard-wrapper">
+
+        <!-- Sidebar Overlay (mobile) -->
+        <div class="sidebar-overlay"></div>
+
+        <!-- ============================================================
+             SIDEBAR
+             ============================================================ -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <span class="sidebar-brand-icon">🌾</span>
+                <div class="sidebar-brand-text">
+                    SmartAgri AI
+                    <span>Intelligent Farming</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item active" data-page="overview">
+                    <span class="nav-item-icon">📊</span>
+                    <span>Dashboard</span>
+                </div>
+                <div class="nav-item" data-page="crop">
+                    <span class="nav-item-icon">🌱</span>
+                    <span>Crop Recommendation</span>
+                </div>
+                <div class="nav-item" data-page="yield">
+                    <span class="nav-item-icon">📈</span>
+                    <span>Yield Prediction</span>
+                </div>
+                <div class="nav-item" data-page="rainfall">
+                    <span class="nav-item-icon">🌧️</span>
+                    <span>Rainfall Forecast</span>
+                </div>
+                <div class="nav-item" data-page="disease">
+                    <span class="nav-item-icon">🔬</span>
+                    <span>Disease Detection</span>
+                </div>
+                <div class="nav-item" data-page="chatbot">
+                    <span class="nav-item-icon">🤖</span>
+                    <span>AI Assistant</span>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/">
+                    <span>🏠</span>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- ============================================================
+             MAIN CONTENT
+             ============================================================ -->
+        <div class="main-content">
+
+            <!-- Dashboard Header -->
+            <header class="dash-header">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">☰</button>
+                <div class="dash-header-title">
+                    <h1>Dashboard</h1>
+                    <p>Welcome to Smart Agriculture AI</p>
+                </div>
+                <div class="header-actions">
+                    <span style="font-size: 0.85rem; color: var(--gray-500);">🌾 SmartAgri AI v1.0</span>
+                </div>
+            </header>
+
+            <div class="page-content">
+
+                <!-- ============================================================
+                     PAGE: OVERVIEW / DASHBOARD HOME
+                     ============================================================ -->
+                <section class="page-section active" id="page-overview">
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner">
+                        <h2>Welcome, Farmer! 👋</h2>
+                        <p>Your AI-powered farming companion is ready. Use our intelligent tools to make data-driven
+                            decisions for better harvests and healthier crops.</p>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="overview-stats">
+                        <div class="stat-card" data-page="crop">
+                            <div class="stat-icon green">🌱</div>
+                            <div class="stat-info">
+                                <h4>Crop Recommendation</h4>
+                                <div class="stat-value green">12 Crops</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-page="yield">
+                            <div class="stat-icon amber">📊</div>
+                            <div class="stat-info">
+                                <h4>Yield Prediction</h4>
+                                <div class="stat-value amber">8 Crops</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-page="rainfall">
+                            <div class="stat-icon blue">🌧️</div>
+                            <div class="stat-info">
+                                <h4>Rainfall Forecast</h4>
+                                <div class="stat-value blue">ANN Model</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-page="disease">
+                            <div class="stat-icon red">🔬</div>
+                            <div class="stat-info">
+                                <h4>Disease Detection</h4>
+                                <div class="stat-value red">30 Classes</div>
+                            </div>
+                        </div>
+                        <div class="stat-card" data-page="chatbot">
+                            <div class="stat-icon purple">🤖</div>
+                            <div class="stat-info">
+                                <h4>AI Assistant</h4>
+                                <div class="stat-value purple">Gemini AI</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <h3 style="margin-bottom: 1rem; font-size: 1.15rem; color: var(--gray-700);">⚡ Quick Actions</h3>
+                    <div class="quick-actions">
+                        <div class="quick-action-card" data-page="crop">
+                            <div class="action-icon">🌱</div>
+                            <h4>Recommend Crop</h4>
+                            <p>Find the best crop for your soil</p>
+                        </div>
+                        <div class="quick-action-card" data-page="yield">
+                            <div class="action-icon">📈</div>
+                            <h4>Predict Yield</h4>
+                            <p>Estimate your harvest output</p>
+                        </div>
+                        <div class="quick-action-card" data-page="disease">
+                            <div class="action-icon">📸</div>
+                            <h4>Scan Leaf</h4>
+                            <p>Detect diseases from photos</p>
+                        </div>
+                        <div class="quick-action-card" data-page="chatbot">
+                            <div class="action-icon">💬</div>
+                            <h4>Ask AI</h4>
+                            <p>Chat with your farm assistant</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     PAGE: CROP RECOMMENDATION
+                     ============================================================ -->
+                <section class="page-section" id="page-crop">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-header-icon">🌱</span>
+                            <div>
+                                <h2>Crop Recommendation</h2>
+                                <p>Enter soil and weather parameters to find the best crop</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form id="crop-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label><span class="icon">🧪</span> Nitrogen (N)</label>
+                                        <input type="number" id="crop-n" placeholder="e.g. 90" step="any" required
+                                            min="0" max="200">
+                                        <span class="input-hint">Nitrogen content ratio</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🧪</span> Phosphorus (P)</label>
+                                        <input type="number" id="crop-p" placeholder="e.g. 42" step="any" required
+                                            min="0" max="200">
+                                        <span class="input-hint">Phosphorus content ratio</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🧪</span> Potassium (K)</label>
+                                        <input type="number" id="crop-k" placeholder="e.g. 43" step="any" required
+                                            min="0" max="300">
+                                        <span class="input-hint">Potassium content ratio</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🌡️</span> Temperature (°C)</label>
+                                        <input type="number" id="crop-temp" placeholder="e.g. 20.8" step="any" required
+                                            min="-10" max="60">
+                                        <span class="input-hint">Average temperature</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">💧</span> Humidity (%)</label>
+                                        <input type="number" id="crop-humidity" placeholder="e.g. 82" step="any"
+                                            required min="0" max="100">
+                                        <span class="input-hint">Relative humidity</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">⚗️</span> pH Value</label>
+                                        <input type="number" id="crop-ph" placeholder="e.g. 6.5" step="0.01" required
+                                            min="0" max="14">
+                                        <span class="input-hint">Soil pH level (0 - 14)</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🌧️</span> Rainfall (mm)</label>
+                                        <input type="number" id="crop-rainfall" placeholder="e.g. 202.9" step="any"
+                                            required min="0" max="500">
+                                        <span class="input-hint">Average rainfall in mm</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-submit">🔍 Recommend Crop</button>
+                            </form>
+
+                            <!-- Error -->
+                            <div class="error-message" id="crop-error"></div>
+
+                            <!-- Result -->
+                            <div class="result-card" id="crop-result">
+                                <div class="result-header">
+                                    <span class="icon">✅</span>
+                                    <h3>Recommended Crop</h3>
+                                </div>
+                                <div class="result-value">—</div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width: 0%"></div>
+                                </div>
+                                <span class="confidence-text"
+                                    style="font-size: 0.85rem; color: var(--gray-500); margin-top: 0.25rem; display: block;">—</span>
+                                <h4 style="margin-top: 1.25rem; font-size: 0.95rem; color: var(--gray-600);">Top
+                                    Predictions</h4>
+                                <ul class="predictions-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     PAGE: YIELD PREDICTION
+                     ============================================================ -->
+                <section class="page-section" id="page-yield">
+                    <div class="card">
+                        <div class="card-header earth">
+                            <span class="card-header-icon">📈</span>
+                            <div>
+                                <h2>Yield Prediction</h2>
+                                <p>Estimate expected crop yield based on conditions</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form id="yield-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label><span class="icon">🌾</span> Crop Type</label>
+                                        <select id="yield-crop" required>
+                                            <option value="rice">Rice</option>
+                                            <option value="wheat">Wheat</option>
+                                            <option value="maize">Maize</option>
+                                            <option value="cotton">Cotton</option>
+                                            <option value="sugarcane">Sugarcane</option>
+                                            <option value="banana">Banana</option>
+                                            <option value="coffee">Coffee</option>
+                                            <option value="jute">Jute</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">📐</span> Area (hectares)</label>
+                                        <input type="number" id="yield-area" placeholder="e.g. 10.5" step="any" required
+                                            min="0.1" max="1000">
+                                        <span class="input-hint">Farming area in hectares</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🌧️</span> Rainfall (mm)</label>
+                                        <input type="number" id="yield-rainfall" placeholder="e.g. 200" step="any"
+                                            required min="0" max="500">
+                                        <span class="input-hint">Expected rainfall</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🌍</span> Soil Quality (1-10)</label>
+                                        <input type="number" id="yield-soil" placeholder="e.g. 7.5" step="0.1" required
+                                            min="1" max="10">
+                                        <span class="input-hint">Soil quality score</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-submit earth">📊 Predict Yield</button>
+                            </form>
+
+                            <div class="error-message" id="yield-error"></div>
+
+                            <div class="result-card earth-result" id="yield-result">
+                                <div class="result-header">
+                                    <span class="icon">🎯</span>
+                                    <h3>Predicted Yield</h3>
+                                </div>
+                                <div class="result-value earth">—</div>
+                                <div class="result-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     PAGE: RAINFALL PREDICTION
+                     ============================================================ -->
+                <section class="page-section" id="page-rainfall">
+                    <div class="card">
+                        <div class="card-header sky">
+                            <span class="card-header-icon">🌧️</span>
+                            <div>
+                                <h2>Rainfall Forecast</h2>
+                                <p>Predict rainfall using weather parameters</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form id="rainfall-form">
+                                <div class="form-grid">
+                                    <div class="form-group">
+                                        <label><span class="icon">📅</span> Month</label>
+                                        <select id="rain-month" required>
+                                            <option value="1">January</option>
+                                            <option value="2">February</option>
+                                            <option value="3">March</option>
+                                            <option value="4">April</option>
+                                            <option value="5">May</option>
+                                            <option value="6">June</option>
+                                            <option value="7" selected>July</option>
+                                            <option value="8">August</option>
+                                            <option value="9">September</option>
+                                            <option value="10">October</option>
+                                            <option value="11">November</option>
+                                            <option value="12">December</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">💧</span> Humidity (%)</label>
+                                        <input type="number" id="rain-humidity" placeholder="e.g. 80" step="any"
+                                            required min="0" max="100">
+                                        <span class="input-hint">Relative humidity percentage</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🌡️</span> Temperature (°C)</label>
+                                        <input type="number" id="rain-temp" placeholder="e.g. 28" step="any" required
+                                            min="-20" max="55">
+                                        <span class="input-hint">Average temperature</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">🌀</span> Pressure (hPa)</label>
+                                        <input type="number" id="rain-pressure" placeholder="e.g. 1008" step="any"
+                                            required min="900" max="1100">
+                                        <span class="input-hint">Atmospheric pressure</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label><span class="icon">💨</span> Wind Speed (km/h)</label>
+                                        <input type="number" id="rain-wind" placeholder="e.g. 12" step="any" required
+                                            min="0" max="200">
+                                        <span class="input-hint">Average wind speed</span>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-submit sky">🌧️ Predict Rainfall</button>
+                            </form>
+
+                            <div class="error-message" id="rainfall-error"></div>
+
+                            <div class="result-card sky-result" id="rainfall-result">
+                                <div class="result-header">
+                                    <span class="icon">🌦️</span>
+                                    <h3>Rainfall Prediction</h3>
+                                </div>
+                                <div class="result-value sky">—</div>
+                                <div class="result-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     PAGE: DISEASE DETECTION
+                     ============================================================ -->
+                <section class="page-section" id="page-disease">
+                    <div class="card">
+                        <div class="card-header warm">
+                            <span class="card-header-icon">🔬</span>
+                            <div>
+                                <h2>Plant Disease Detection</h2>
+                                <p>Upload a leaf image to detect diseases</p>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Upload Zone -->
+                            <div class="upload-zone">
+                                <input type="file" id="disease-image" accept="image/*">
+                                <div class="upload-icon">📸</div>
+                                <h4>Drop a leaf image here or click to upload</h4>
+                                <p>Supports PNG, JPG, JPEG, GIF, BMP, WebP (max 16MB)</p>
+                            </div>
+
+                            <div class="image-preview">
+                                <img id="preview-img" src="" alt="Uploaded leaf preview">
+                            </div>
+
+                            <button id="detect-disease-btn" class="btn-submit warm">🔬 Detect Disease</button>
+
+                            <div class="error-message" id="disease-error"></div>
+
+                            <!-- Disease Result -->
+                            <div class="disease-result">
+                                <div class="disease-status healthy">
+                                    <span class="status-icon">✅</span>
+                                    <div class="status-text">
+                                        <h3>—</h3>
+                                        <p>—</p>
+                                    </div>
+                                </div>
+
+                                <div style="margin-top: 0.75rem;">
+                                    <span style="font-size: 0.85rem; color: var(--gray-500);">Confidence</span>
+                                    <div class="confidence-bar">
+                                        <div class="confidence-fill" style="width: 0%"></div>
+                                    </div>
+                                </div>
+
+                                <div class="treatment-card">
+                                    <h4>💊 Recommended Treatment</h4>
+                                    <p class="treatment-text">—</p>
+                                </div>
+
+                                <h4 style="margin-top: 1.25rem; font-size: 0.95rem; color: var(--gray-600);">Other
+                                    Possibilities</h4>
+                                <ul class="predictions-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ============================================================
+                     PAGE: AI CHATBOT
+                     ============================================================ -->
+                <section class="page-section" id="page-chatbot">
+                    <div class="chat-container">
+                        <div class="chat-header">
+                            <div class="chat-avatar">🌾</div>
+                            <div class="chat-header-info">
+                                <h3>Farm AI Assistant</h3>
+                                <p>Powered by Gemini AI</p>
+                            </div>
+                            <div class="chat-status-dot"></div>
+                        </div>
+
+                        <div class="chat-messages" id="chat-messages">
+                            <div class="chat-message bot">
+                                <div class="message-avatar">🌾</div>
+                                <div class="message-bubble">Hello! 👋 I'm your Smart Agriculture AI Assistant. I can
+                                    help you with:
+
+                                    🌱 Crop selection and planting advice
+                                    🧪 Fertilizer recommendations
+                                    🐛 Pest and disease management
+                                    💧 Irrigation guidance
+                                    🌤️ Weather-based farming tips
+
+                                    How can I help you today?</div>
+                            </div>
+                        </div>
+
+                        <div class="chat-input-area">
+                            <button class="chat-voice-btn" id="chat-voice" title="Voice input">🎤</button>
+                            <input type="text" id="chat-input" placeholder="Ask about crops, soil, pests, weather..."
+                                autocomplete="off">
+                            <button class="chat-send-btn" id="chat-send" title="Send message">➤</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div><!-- end page-content -->
+        </div><!-- end main-content -->
+    </div><!-- end dashboard-wrapper -->
+
+    <!-- Loader Overlay -->
+    <div class="loader-overlay">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>Processing...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>
